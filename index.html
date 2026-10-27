@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="sbqek7MiaLrwJ8jsf_RY0D2SCpqPE_kAO2Iv-moEmQg" />
+  <!-- Popunder Script -->
+  <script data-cfasync="false" src="https://abscloud.org/1/c76fa62f8db8d8830d14f6d9d84da0f8"></script>
+  
+  <!-- Social Bar / In-Page Push Script -->
+  <script data-cfasync="false" src="https://bauval.org/14/71fc1ff9eb500132ce6dbcb89bf5f884"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PixelVault - Ultimate Web Gaming Hub</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+            },
+            neon: {
+              cyan: '#00f3ff',
+              purple: '#b026ff',
+              pink: '#ff007f',
+              green: '#00ff66'
+            },
+            dark: {
+              bg: '#0a0d14',
+              card: '#121824',
+              hover: '#1a2332',
+              border: '#2a3447'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'neon-cyan': '0 0 15px rgba(0, 243, 255, 0.4)',
+            'neon-purple': '0 0 15px rgba(176, 38, 255, 0.4)',
+            'neon-pink': '0 0 15px rgba(255, 0, 127, 0.4)',
+          }
+        }
+      }
+    }
+  </script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0d14;
+      color: #f3f4f6;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0d14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a3447;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00f3ff;
+    }
+
+    /* Cyber Glow Effects */
+    .glow-border {
+      position: relative;
+    }
+    .glow-border::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(45deg, #00f3ff, #b026ff, #ff007f);
+      border-radius: inherit;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .glow-border:hover::after {
+      opacity: 1;
+    }
+
+    .glass-panel {
+      background: rgba(18, 24, 36, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Animated gradient text */
+    .text-gradient {
+      background: linear-gradient(135deg, #00f3ff 0%, #b026ff 50%, #ff007f 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-cyan-500 selection:text-black">
+
+  <!-- ANTI-ADBLOCK MODAL OVERLAY -->
+  <div id="adblockOverlay" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl hidden flex items-center justify-center p-4">
+    <div class="max-w-md w-full bg-dark-card border border-red-500/40 rounded-3xl p-6 sm:p-8 text-center space-y-6 shadow-2xl relative overflow-hidden">
+      <div class="absolute -top-12 -right-12 w-32 h-32 bg-red-500/10 rounded-full blur-2xl"></div>
+      
+      <div class="w-16 h-16 rounded-2xl bg-red-500/10 border border-red-500/30 flex items-center justify-center mx-auto text-red-500 text-3xl">
+        <i class="fa-solid fa-shield-halved animate-pulse"></i>
+      </div>
+
+      <div class="space-y-2">
+        <h2 class="text-2xl font-black text-white">AdBlocker Detected</h2>
+        <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
+          PixelVault relies on non-intrusive ads to keep our web games free for everyone. Please disable your AdBlocker or whitelist our site to continue playing.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-dark-bg/80 border border-dark-border text-left space-y-2 text-xs text-gray-300">
+        <div class="font-bold text-cyan-400 flex items-center gap-2">
+          <i class="fa-solid fa-circle-info"></i> How to disable:
+        </div>
+        <ol class="list-decimal list-inside space-y-1 text-gray-400 text-[11px]">
+          <li>Click your AdBlock extension icon in your browser toolbar.</li>
+          <li>Select <strong>"Don't run on pages on this domain"</strong> or turn off protection.</li>
+          <li>Click the button below to refresh the check.</li>
+        </ol>
+      </div>
+
+      <button 
+        onclick="window.location.reload()" 
+        class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-500 text-white font-extrabold text-sm shadow-lg shadow-cyan-500/25 hover:opacity-90 transition-all flex items-center justify-center gap-2"
+      >
+        <i class="fa-solid fa-rotate-right"></i>
+        <span>I've Disabled AdBlocker - Refresh Page</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-40 glass-panel border-b border-gray-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-4">
+        
+        <!-- Logo -->
+        <div class="flex items-center gap-3 cursor-pointer" onclick="filterCategory('All')">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-purple-600 to-pink-500 flex items-center justify-center text-white font-black text-xl shadow-neon-cyan">
+            <i class="fa-solid font-black fa-gamepad"></i>
+          </div>
+          <div>
+            <span class="text-2xl font-black tracking-wider text-white">PIXEL<span class="text-gradient">VAULT</span></span>
+            <span class="block text-[10px] font-semibold text-cyan-400 tracking-widest uppercase">Web Gaming Arcade</span>
+          </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="flex-1 max-w-md hidden md:block">
+          <div class="relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input 
+              type="text" 
+              id="searchInput"
+              oninput="handleSearch()"
+              placeholder="Search games, categories, tags..." 
+              class="w-full bg-dark-card border border-dark-border rounded-xl pl-10 pr-4 py-2.5 text-sm text-gray-200 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all placeholder:text-gray-500"
+            >
+          </div>
+        </div>
+
+        <!-- Quick Stats & Actions -->
+        <div class="flex items-center gap-3">
+          <!-- Favorite Quick Tab -->
+          <button 
+            onclick="filterCategory('Favorites')"
+            id="favTabBtn"
+            class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-dark-card border border-dark-border hover:border-pink-500/50 text-gray-300 hover:text-pink-400 text-sm font-medium transition-all"
+          >
+            <i class="fa-solid fa-heart text-pink-500"></i>
+            <span class="hidden sm:inline">Favorites</span>
+            <span id="favBadge" class="bg-pink-500/20 text-pink-400 text-xs px-2 py-0.5 rounded-full border border-pink-500/30">0</span>
+          </button>
+
+          <!-- History Quick Tab -->
+          <button 
+            onclick="filterCategory('Recent')"
+            class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-dark-card border border-dark-border hover:border-cyan-500/50 text-gray-300 hover:text-cyan-400 text-sm font-medium transition-all"
+          >
+            <i class="fa-solid fa-clock-rotate-left text-cyan-400"></i>
+            <span class="hidden sm:inline">Recent</span>
+          </button>
+        </div>
+
+      </div>
+      
+      <!-- Mobile Search (Visible on small screens) -->
+      <div class="pb-4 md:hidden">
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+          <input 
+            type="text" 
+            id="mobileSearchInput"
+            oninput="handleMobileSearch()"
+            placeholder="Search games..." 
+            class="w-full bg-dark-card border border-dark-border rounded-xl pl-10 pr-4 py-2 text-sm text-gray-200 focus:outline-none focus:border-cyan-500"
+          >
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero / Banner Section -->
+  <div class="relative overflow-hidden bg-dark-bg border-b border-dark-border">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="space-y-4 text-center lg:text-left max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wide uppercase">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            Instant Play - No Downloads Needed
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+            Next-Gen Web <span class="text-gradient">Gaming Experience</span>
+          </h1>
+          <p class="text-gray-400 text-base sm:text-lg">
+            Immerse yourself in top-tier retro arcade, 3D simulations, high-speed racers, and strategic defenses directly inside your browser.
+          </p>
+        </div>
+        
+        <!-- Featured Quick Launch Banner Widget linked to Smartlink -->
+        <div class="w-full lg:w-auto flex-1 max-w-md">
+          <div class="p-1 rounded-2xl bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500">
+            <div class="bg-dark-card rounded-[14px] p-5 space-y-3">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-bold uppercase tracking-wider text-purple-400"><i class="fa-solid fa-fire mr-1"></i> Featured Title</span>
+                <span class="text-xs bg-yellow-500/10 text-yellow-400 px-2 py-0.5 rounded font-bold border border-yellow-500/20"><i class="fa-solid fa-star mr-1"></i> 4.9</span>
+              </div>
+              <h3 class="text-xl font-bold text-white">HexGL - Sci-Fi Racer</h3>
+              <p class="text-xs text-gray-400 line-clamp-2">High-speed futuristic anti-gravity racing game built with HTML5 and WebGL.</p>
+              
+              <!-- Smartlink Action Button -->
+              <a 
+                href="https://araplhn.org/4/b36c5b0c107d4909261dc6cb3db35662" 
+                target="_blank"
+                class="w-full py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold text-sm shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 text-center"
+              >
+                <i class="fa-solid fa-play"></i> Play Featured Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    
+    <!-- Native Banner Ad Unit Placement -->
+    <div class="w-full bg-dark-card border border-dark-border rounded-2xl p-4 flex flex-col items-center justify-center overflow-hidden min-h-[120px]">
+      <span class="text-[10px] uppercase font-semibold text-gray-500 tracking-wider mb-2">Sponsored Advertisement</span>
+      <script async="async" data-cfasync="false" src="https://bauval.org/21/7cb35ae6b81f5974886b51a74bd77f1a"></script>
+      <div id="container-7cb35ae6b81f5974886b51a74bd77f1a"></div>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="flex items-center justify-between gap-4 overflow-x-auto pb-2 scrollbar-none">
+      <div class="flex items-center gap-2" id="categoryContainer">
+        <!-- Dynamic Buttons Rendered by JS -->
+      </div>
+      <div class="text-xs text-gray-500 whitespace-nowrap font-medium hidden md:block">
+        Showing <span id="gameCountDisplay" class="text-cyan-400 font-bold">0</span> Games
+      </div>
+    </div>
+
+    <!-- Active Filter Banner / Status -->
+    <div id="filterBanner" class="hidden flex items-center justify-between p-4 rounded-xl bg-dark-card border border-dark-border">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-filter text-cyan-400"></i>
+        <span class="text-sm text-gray-300">Filter active: <strong id="activeFilterName" class="text-white">All</strong></span>
+      </div>
+      <button onclick="filterCategory('All')" class="text-xs text-cyan-400 hover:underline font-semibold">Clear Filter</button>
+    </div>
+
+    <!-- Games Grid -->
+    <div id="gamesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Game cards generated dynamically -->
+    </div>
+
+    <!-- Empty State Container -->
+    <div id="emptyState" class="hidden flex flex-col items-center justify-center py-16 text-center space-y-4">
+      <div class="w-16 h-16 rounded-full bg-dark-card border border-dark-border flex items-center justify-center text-gray-500 text-2xl">
+        <i class="fa-solid fa-ghost"></i>
+      </div>
+      <h3 class="text-lg font-bold text-white">No Games Found</h3>
+      <p class="text-sm text-gray-400 max-w-sm">We couldn't find any games matching your current search or category filter criteria.</p>
+      <button onclick="filterCategory('All')" class="px-4 py-2 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 text-sm font-semibold hover:bg-cyan-500/20 transition-all">
+        Reset Search & Filters
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark-card border-t border-dark-border py-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <div class="flex items-center justify-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center text-white text-xs font-black">
+          <i class="fa-solid fa-gamepad"></i>
+        </div>
+        <span class="font-bold text-lg text-white">PIXEL<span class="text-gradient">VAULT</span></span>
+      </div>
+      <p class="text-xs text-gray-500 max-w-md mx-auto">
+        All embedded games remain the property of their respective creators and owners. PixelVault provides a unified portal for web gaming enthusiasts.
+      </p>
+      <div class="text-xs text-gray-600">
+        &copy; 2026 PixelVault Hub. Built for peak browser performance.
+      </div>
+    </div>
+  </footer>
+
+  <!-- FULLSCREEN GAME OVERLAY / MODAL PLAYER -->
+  <div id="gameModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex-col transition-all duration-300">
+    
+    <!-- Top Modal Control Bar -->
+    <div class="h-14 bg-dark-card/90 border-b border-dark-border px-4 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-3">
+        <span id="modalGameIcon" class="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 flex items-center justify-center text-sm font-bold">
+          <i class="fa-solid fa-gamepad"></i>
+        </span>
+        <div>
+          <h2 id="modalGameTitle" class="text-sm sm:text-base font-bold text-white leading-tight">Game Title</h2>
+          <p id="modalGameCategory" class="text-[11px] text-gray-400">Category</p>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-2">
+        <!-- Smartlink Promotion Button in Modal Header -->
+        <a 
+          href="https://araplhn.org/4/b36c5b0c107d4909261dc6cb3db35662"
+          target="_blank"
+          title="Special Offer"
+          class="px-2.5 py-1.5 rounded-lg bg-purple-500/20 border border-purple-500/40 text-purple-300 hover:bg-purple-500/30 text-xs font-bold transition-all hidden sm:flex items-center gap-1.5"
+        >
+          <i class="fa-solid fa-bolt text-xs"></i>
+          <span>Bonus</span>
+        </a>
+
+        <!-- Reload -->
+        <button 
+          onclick="reloadGameIframe()" 
+          title="Reload Game"
+          class="p-2 rounded-lg bg-dark-bg hover:bg-dark-hover text-gray-300 hover:text-white border border-dark-border text-xs transition-all"
+        >
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+
+        <!-- Toggle Modal Fullscreen (Canvas/Browser) -->
+        <button 
+          onclick="toggleIframeFullscreen()" 
+          title="Toggle Fullscreen"
+          class="p-2 rounded-lg bg-dark-bg hover:bg-dark-hover text-gray-300 hover:text-white border border-dark-border text-xs transition-all"
+        >
+          <i class="fa-solid fa-expand"></i>
+        </button>
+
+        <!-- Direct External Link -->
+        <a 
+          id="modalExternalLink" 
+          href="#" 
+          target="_blank" 
+          title="Open in New Tab"
+          class="p-2 rounded-lg bg-dark-bg hover:bg-dark-hover text-gray-300 hover:text-white border border-dark-border text-xs transition-all flex items-center justify-center"
+        >
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <!-- Close Modal -->
+        <button 
+          onclick="closeGameModal()" 
+          class="ml-2 px-3 py-1.5 rounded-lg bg-red-500/20 border border-red-500/40 text-red-400 hover:bg-red-500/30 text-xs font-bold transition-all flex items-center gap-1.5"
+        >
+          <i class="fa-solid fa-xmark text-sm"></i>
+          <span>Close</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Game Frame Area -->
+    <div class="flex-1 relative bg-black flex items-center justify-center overflow-hidden">
+      <!-- Loading Spinner Overlay -->
+      <div id="iframeLoader" class="absolute inset-0 z-10 bg-dark-bg/90 flex flex-col items-center justify-center gap-3">
+        <div class="w-10 h-10 border-4 border-cyan-500/20 border-t-cyan-400 rounded-full animate-spin"></div>
+        <span class="text-xs font-semibold text-gray-400 tracking-wider">LOADING GAME...</span>
+      </div>
+
+      <!-- Embedded Game Iframe -->
+      <iframe 
+        id="gameIframe" 
+        src="" 
+        class="w-full h-full border-0 shadow-2xl"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; gamepad" 
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <!-- Bottom Drawer Game Info Banner -->
+    <div class="bg-dark-card border-t border-dark-border p-3 sm:p-4 shrink-0">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-gray-400">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-circle-info text-cyan-400"></i>
+          <span id="modalInstructions" class="line-clamp-1">Use keyboard controls or mouse depending on game mechanics.</span>
+        </div>
+        <div class="flex items-center gap-4 text-[11px]">
+          <span>Tip: If controls freeze, click inside the game window.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // --- GAME DATABASE (All 18 Games Included) ---
+    const GAMES_DATA = [
+      {
+        id: 'spaceinvaders',
+        title: 'Space Invaders',
+        url: 'https://www.edopedia.com/demo/SpaceInvaders/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/SpaceInvaders_700.jpg',
+        category: 'Arcade',
+        tags: ['Arcade', 'Retro', 'Shooter', 'Classic'],
+        rating: 4.9,
+        plays: '64.2k',
+        poster: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80',
+        icon: 'fa-user-astronaut',
+        description: 'Defend Earth from descending waves of alien invaders in this legendary arcade space shooter.',
+        instructions: 'Arrow keys / A & D to move left/right. Spacebar to fire cannon.'
+      },
+      {
+        id: 'breaklock',
+        title: 'BreakLock',
+        url: 'https://maxwellito.github.io/breaklock/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/BreakLock_700.jpg',
+        category: 'Puzzle',
+        tags: ['Puzzle', 'Mind', 'Logic', 'Minimal'],
+        rating: 4.7,
+        plays: '19.5k',
+        poster: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80',
+        icon: 'fa-lock',
+        description: 'A Mastermind-like puzzle game where you deduce the secret pattern connection on a grid.',
+        instructions: 'Click and drag across dots to draw pattern combinations. Analyze indicators to unlock.'
+      },
+      {
+        id: 'circuscharly',
+        title: 'Circus Charly',
+        url: 'https://gamegur-us.github.io/circushtml5/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/Circus-Charly-html5-tribute-in-phaser_700.jpg',
+        category: 'Arcade',
+        tags: ['Arcade', 'Classic', 'Retro', 'Skill'],
+        rating: 4.6,
+        plays: '22.8k',
+        poster: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80',
+        icon: 'fa-drum',
+        description: 'Classic arcade skill challenge. Perform acrobatics, jump over flame hoops, and navigate circus hurdles.',
+        instructions: 'Left/Right arrows to move back and forth. Spacebar / Up arrow to jump.'
+      },
+      {
+        id: 'diablojs',
+        title: 'Diablo-js',
+        url: 'https://mitallast.github.io/diablo-js/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/diablo-js_700.jpg',
+        category: 'Action',
+        tags: ['Action', 'RPG', 'Isometric', 'Hack & Slash'],
+        rating: 4.8,
+        plays: '58.3k',
+        poster: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80',
+        icon: 'fa-dungeon',
+        description: 'An open-source HTML5 isometric RPG engine inspired by classic action role-playing games.',
+        instructions: 'Left click to walk or attack monsters. Right click / hotkeys for abilities.'
+      },
+      {
+        id: 'duckhunt',
+        title: 'Duck Hunt',
+        url: 'https://duckhuntjs.com/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/DUCK-HUNT-JS_700.jpg',
+        category: 'Arcade',
+        tags: ['Arcade', 'Retro', 'Shooter', 'Classic'],
+        rating: 4.8,
+        plays: '39.7k',
+        poster: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80',
+        icon: 'fa-crosshair',
+        description: 'Test your aim in this faithful browser remake of the 8-bit light gun shooting classic.',
+        instructions: 'Aim and click on flying ducks before they escape. Reload shots carefully.'
+      },
+      {
+        id: 'infinitemario',
+        title: 'Infinite Mario',
+        url: 'https://openhtml5games.github.io/games-mirror/dist/mariohtml5/main.html',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/Infinite-Mario-in-HTML5-JavaScript_700.jpg',
+        category: 'Arcade',
+        tags: ['Arcade', 'Platformer', 'Retro', 'Classic'],
+        rating: 4.9,
+        plays: '89.4k',
+        poster: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=600&q=80',
+        icon: 'fa-hat-wizard',
+        description: 'Procedurally generated side-scrolling platform adventure featuring classic Mario mechanics.',
+        instructions: 'Arrow keys / A & D to move, S to jump, A to sprint or shoot fireballs.'
+      },
+      {
+        id: 'hextris',
+        title: 'Hextris',
+        url: 'https://hextris.io/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/Hextris_700.jpg',
+        category: 'Puzzle',
+        tags: ['Puzzle', 'Arcade', 'Fast-Paced', 'Hexagon'],
+        rating: 4.7,
+        plays: '34.1k',
+        poster: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80',
+        icon: 'fa-shapes',
+        description: 'A fast-paced puzzle game where players rotate a central hexagon to stack incoming colored blocks.',
+        instructions: 'Use Left and Right arrow keys to rotate the outer hexagon frame.'
+      },
+      {
+        id: 'pseudoracer',
+        title: 'Pseudo 3D Racer',
+        url: 'https://jakesgordon.com/games/racer/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/Javascript-Pseudo-3D-Racer_700.jpg',
+        category: 'Racing',
+        tags: ['Racing', 'Retro', '3D', 'Arcade'],
+        rating: 4.6,
+        plays: '27.4k',
+        poster: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80',
+        icon: 'fa-car-side',
+        description: 'Outrun style retro pseudo 3D arcade racing simulation rendered on HTML5 canvas.',
+        instructions: 'Up Arrow to accelerate, Down to brake, Left/Right to steer.'
+      },
+      {
+        id: 'pacmancanvas',
+        title: 'Pacman Canvas',
+        url: 'https://pacman.platzh1rsch.ch/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/Pacman-canvas_700.jpg',
+        category: 'Arcade',
+        tags: ['Arcade', 'Retro', 'Classic', 'Maze'],
+        rating: 4.9,
+        plays: '73.8k',
+        poster: 'https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?auto=format&fit=crop&w=600&q=80',
+        icon: 'fa-ghost',
+        description: 'Chomp pellets, dodge ghosts, and power up in this pure HTML5 JavaScript Pacman reproduction.',
+        instructions: 'Arrow keys to change direction. Eat power pellets to defeat roaming ghosts.'
+      },
+      {
+        id: 'radiusraid',
+        title: 'Radius Raid',
+        url: 'https://play.js13kgames.com/radius-raid/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/Radius-Raid_700.jpg',
+        category: 'Action',
+        tags: ['Action', 'Shooter', 'Retro', 'JS13K'],
+        rating: 4.7,
+        plays: '21.0k',
+        poster: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80',
+        icon: 'fa-circle-dot',
+        description: 'Vector-style space shooter where you blast away relentless waves of geometric enemy forces.',
+        instructions: 'Mouse cursor to aim & steer, Left Click to fire weapons, Spacebar for bombs.'
+      },
+      {
+        id: 'simonsays',
+        title: 'React Simon Says',
+        url: 'https://weslleyaraujo.github.io/react-simon-says/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/React-Simon-Says_700.jpg',
+        category: 'Casual',
+        tags: ['Casual', 'Memory', 'Mind', 'Puzzle'],
+        rating: 4.5,
+        plays: '15.9k',
+        poster: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80',
+        icon: 'fa-lightbulb',
+        description: 'Test your visual and audio memory by repeating expanding sequences of glowing lights.',
+        instructions: 'Watch and memorize the color sequence, then click the matching buttons in order.'
+      },
+      {
+        id: 'pixeldefense',
+        title: 'PixelDefense',
+        url: 'https://www.edopedia.com/demo/pixeldefense/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/PixelDefense_700.jpg',
+        category: 'Strategy',
+        tags: ['Strategy', 'Defense', 'Pixel Art', 'Tower'],
+        rating: 4.8,
+        plays: '12.4k',
+        poster: 'https://placehold.co/600x350/121824/00f3ff?text=PixelDefense',
+        icon: 'fa-shield-halved',
+        description: 'Engage in intense tactical tower defense with vibrant retro pixel art graphics. Defend your base against waves of strategic enemies.',
+        instructions: 'Click on strategic towers to construct defense nodes. Upgrade weapons as gold accumulates.'
+      },
+      {
+        id: 'hexgl',
+        title: 'HexGL',
+        url: 'https://hexgl.bkcore.com/play/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/HexGL_700.jpg',
+        category: '3D',
+        tags: ['Racing', '3D', 'Sci-Fi', 'Fast-Paced'],
+        rating: 4.9,
+        plays: '45.1k',
+        poster: 'https://placehold.co/600x350/121824/b026ff?text=HexGL+3D+Racer',
+        icon: 'fa-gauge-high',
+        description: 'A futuristic HTML5 high-speed anti-gravity racing game built with WebGL and HTML5.',
+        instructions: 'Controls: Arrow keys / WASD to steer hovercraft, Spacebar for boost.'
+      },
+      {
+        id: 'tower_game',
+        title: 'Tower Building Game',
+        url: 'https://iamkun.github.io/tower_game/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/Tower-Building-Game_700.jpg',
+        category: 'Casual',
+        tags: ['Casual', 'Arcade', 'Timing', 'Physics'],
+        rating: 4.6,
+        plays: '28.9k',
+        poster: 'https://placehold.co/600x350/121824/ff007f?text=Tower+Building',
+        icon: 'fa-building',
+        description: 'Test your timing and precision! Stack floating floors as high as possible without causing the tower to balance out.',
+        instructions: 'Click or tap screen at the exact moment to drop floor blocks directly on top of each other.'
+      },
+      {
+        id: 'mkjs',
+        title: 'mk.js',
+        url: 'https://mk.mgechev.com/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/mk.js_700.jpg',
+        category: 'Action',
+        tags: ['Action', 'Fighting', 'Retro', '2D'],
+        rating: 4.7,
+        plays: '31.2k',
+        poster: 'https://placehold.co/600x350/121824/00ff66?text=mk.js+Fighting',
+        icon: 'fa-hand-fist',
+        description: 'Classic retro canvas 2D fighting game inspired by legendary arcade fighters. Play single player or dual mode.',
+        instructions: 'Movement: WASD / Arrow Keys. Punches/Kicks: H, J, K, L key combinations.'
+      },
+      {
+        id: 'astray',
+        title: 'Astray',
+        url: 'https://wwwtyro.github.io/Astray/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/Astray_700.jpg',
+        category: '3D',
+        tags: ['3D', 'Puzzle', 'Maze', 'Physics'],
+        rating: 4.5,
+        plays: '18.7k',
+        poster: 'https://placehold.co/600x350/121824/00f3ff?text=Astray+3D+Maze',
+        icon: 'fa-cubes-stacked',
+        description: 'A 3D labyrinth puzzle web game built using Three.js and Cannon.js physics. Navigate the rolling ball to the exit portal.',
+        instructions: 'Controls: Arrow Keys or WASD to tilt the maze and guide the ball.'
+      },
+      {
+        id: 'clumsybird',
+        title: 'Clumsy Bird',
+        url: 'https://ellisonleao.github.io/clumsy-bird/',
+        img: 'https://www.edopedia.com/blog/wp-content/uploads/2018/04/Clumsy-Bird_700.jpg',
+        category: 'Arcade',
+        tags: ['Arcade', 'Casual', 'Classic', 'Flappy'],
+        rating: 4.4,
+        plays: '52.0k',
+        poster: 'https://placehold.co/600x350/121824/b026ff?text=Clumsy+Bird',
+        icon: 'fa-crow',
+        description: 'A melonJS based open-source clone of the famous Flappy Bird. Guide the clumsy bird through endless obstacles.',
+        instructions: 'Controls: Spacebar, Click, or Tap screen to flap wings and gain height.'
+      }
+    ];
+
+    const CATEGORIES = ['All', 'Action', 'Racing', 'Arcade', 'Puzzle', 'Strategy', 'Casual', '3D', 'Favorites', 'Recent'];
+
+    // STATE
+    let currentCategory = 'All';
+    let searchQuery = '';
+    let favorites = JSON.parse(localStorage.getItem('pixelvault_favorites') || '[]');
+    let recentGames = JSON.parse(localStorage.getItem('pixelvault_recent') || '[]');
+    let activeGame = null;
+
+    // --- ADBLOCK DETECTOR (Non-intrusive) ---
+    function checkAdBlock() {
+      setTimeout(() => {
+        const adContainer = document.getElementById('container-7cb35ae6b81f5974886b51a74bd77f1a');
+        const scriptCheck = document.querySelector('script[src*="bauval.org"]');
+        
+        if (adContainer && adContainer.innerHTML.trim() === '' && scriptCheck && scriptCheck.getAttribute('data-blocked') === 'true') {
+          const overlay = document.getElementById('adblockOverlay');
+          if (overlay) {
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+          }
+        }
+      }, 2500);
+    }
+
+    // --- INITIALIZATION ---
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCategoryButtons();
+      renderGames();
+      updateFavoriteBadge();
+
+      // Setup iframe load handler
+      const iframe = document.getElementById('gameIframe');
+      iframe.addEventListener('load', () => {
+        document.getElementById('iframeLoader').classList.add('hidden');
+      });
+
+      checkAdBlock();
+    });
+
+    // --- RENDER CATEGORIES ---
+    function renderCategoryButtons() {
+      const container = document.getElementById('categoryContainer');
+      container.innerHTML = CATEGORIES.map(cat => {
+        const isActive = cat === currentCategory;
+        const iconMap = {
+          'All': 'fa-grip',
+          'Action': 'fa-bolt',
+          'Racing': 'fa-car',
+          'Arcade': 'fa-gamepad',
+          'Puzzle': 'fa-puzzle-piece',
+          'Strategy': 'fa-chess',
+          'Casual': 'fa-mug-hot',
+          '3D': 'fa-cube',
+          'Favorites': 'fa-heart',
+          'Recent': 'fa-clock-rotate-left'
+        };
+
+        const activeClass = isActive 
+          ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold shadow-lg shadow-cyan-500/20 border-transparent'
+          : 'bg-dark-card border-dark-border text-gray-400 hover:text-white hover:border-gray-600';
+
+        return `
+          <button 
+            onclick="filterCategory('${cat}')"
+            class="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium border transition-all flex items-center gap-2 whitespace-nowrap ${activeClass}"
+          >
+            <i class="fa-solid ${iconMap[cat] || 'fa-tag'}"></i>
+            <span>${cat}</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    // --- FILTER & SEARCH LOGIC ---
+    function filterCategory(cat) {
+      currentCategory = cat;
+      renderCategoryButtons();
+      
+      const banner = document.getElementById('filterBanner');
+      const name = document.getElementById('activeFilterName');
+      if (cat !== 'All') {
+        banner.classList.remove('hidden');
+        name.innerText = cat;
+      } else {
+        banner.classList.add('hidden');
+      }
+
+      renderGames();
+    }
+
+    function handleSearch() {
+      searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+      renderGames();
+    }
+
+    function handleMobileSearch() {
+      searchQuery = document.getElementById('mobileSearchInput').value.toLowerCase().trim();
+      renderGames();
+    }
+
+    // --- RENDER GAMES GRID ---
+    function renderGames() {
+      const grid = document.getElementById('gamesGrid');
+      const empty = document.getElementById('emptyState');
+
+      let filtered = GAMES_DATA.filter(game => {
+        // Category Filter
+        if (currentCategory === 'Favorites') {
+          if (!favorites.includes(game.id)) return false;
+        } else if (currentCategory === 'Recent') {
+          if (!recentGames.includes(game.id)) return false;
+        } else if (currentCategory !== 'All' && game.category !== currentCategory) {
+          return false;
+        }
+
+        // Search Query Filter
+        if (searchQuery) {
+          const matchTitle = game.title.toLowerCase().includes(searchQuery);
+          const matchCat = game.category.toLowerCase().includes(searchQuery);
+          const matchTags = game.tags.some(t => t.toLowerCase().includes(searchQuery));
+          return matchTitle || matchCat || matchTags;
+        }
+
+        return true;
+      });
+
+      document.getElementById('gameCountDisplay').innerText = filtered.length;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+      }
+
+      empty.classList.add('hidden');
+
+      grid.innerHTML = filtered.map(game => {
+        const isFav = favorites.includes(game.id);
+        const imageSrc = game.img || game.poster;
+
+        return `
+          <div class="group relative rounded-2xl bg-dark-card border border-dark-border overflow-hidden hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1.5 flex flex-col">
+            
+            <!-- Image / Poster Preview -->
+            <div class="relative h-48 w-full overflow-hidden bg-gray-900">
+              <img 
+                src="${imageSrc}" 
+                alt="${game.title}" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                onerror="this.src='https://placehold.co/600x350/121824/00f3ff?text=${encodeURIComponent(game.title)}'"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent opacity-90"></div>
+
+              <!-- Top Badges -->
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-lg bg-dark-bg/80 backdrop-blur-md border border-white/10 text-cyan-400 text-[11px] font-bold">
+                  <i class="fa-solid ${game.icon} mr-1"></i> ${game.category}
+                </span>
+
+                <!-- Favorite Toggle -->
+                <button 
+                  onclick="toggleFavorite('${game.id}', event)" 
+                  class="w-8 h-8 rounded-lg bg-dark-bg/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-xs transition-all hover:scale-110 ${isFav ? 'text-pink-500' : 'text-gray-400 hover:text-pink-400'}"
+                  title="${isFav ? 'Remove Favorite' : 'Add Favorite'}"
+                >
+                  <i class="fa-${isFav ? 'solid' : 'regular'} fa-heart"></i>
+                </button>
+              </div>
+
+              <!-- Floating Quick Launch Overlay Button -->
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
+                <button 
+                  onclick="launchGame('${game.id}')"
+                  class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold text-xs shadow-lg shadow-cyan-500/30 flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-all"
+                >
+                  <i class="fa-solid fa-play"></i> PLAY NOW
+                </button>
+              </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-bold text-base text-white group-hover:text-cyan-400 transition-colors line-clamp-1">${game.title}</h3>
+                  <div class="flex items-center text-xs font-bold text-yellow-400 gap-1 shrink-0">
+                    <i class="fa-solid fa-star"></i>
+                    <span>${game.rating}</span>
+                  </div>
+                </div>
+
+                <p class="text-xs text-gray-400 line-clamp-2 leading-relaxed">${game.description}</p>
+              </div>
+
+              <!-- Tags & Footer -->
+              <div class="space-y-3 pt-2 border-t border-dark-border/60">
+                <div class="flex flex-wrap gap-1.5">
+                  ${game.tags.map(tag => `<span class="px-2 py-0.5 rounded bg-dark-bg text-[10px] text-gray-400 border border-dark-border">${tag}</span>`).join('')}
+                </div>
+
+                <div class="flex items-center justify-between pt-1 text-xs">
+                  <span class="text-gray-500 text-[11px]"><i class="fa-solid fa-gamepad mr-1"></i> ${game.plays} plays</span>
+                  <button 
+                    onclick="launchGame('${game.id}')" 
+                    class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1 group/btn"
+                  >
+                    Launch <i class="fa-solid fa-chevron-right text-[10px] group-hover/btn:translate-x-0.5 transition-transform"></i>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        `;
+      }).join('');
+    }
+
+    // --- FAVORITES SYSTEM ---
+    function toggleFavorite(id, event) {
+      if (event) event.stopPropagation();
+      if (favorites.includes(id)) {
+        favorites = favorites.filter(fav => fav !== id);
+      } else {
+        favorites.push(id);
+      }
+      localStorage.setItem('pixelvault_favorites', JSON.stringify(favorites));
+      updateFavoriteBadge();
+      renderGames();
+    }
+
+    function updateFavoriteBadge() {
+      document.getElementById('favBadge').innerText = favorites.length;
+    }
+
+    // --- GAME PLAYER MODAL LOGIC ---
+    function launchGame(id) {
+      const game = GAMES_DATA.find(g => g.id === id);
+      if (!game) return;
+
+      activeGame = game;
+
+      // Add to recent played
+      recentGames = [id, ...recentGames.filter(r => r !== id)].slice(0, 10);
+      localStorage.setItem('pixelvault_recent', JSON.stringify(recentGames));
+
+      // Update Modal Elements
+      document.getElementById('modalGameTitle').innerText = game.title;
+      document.getElementById('modalGameCategory').innerText = `${game.category} • PixelVault Web Embed`;
+      document.getElementById('modalInstructions').innerText = game.instructions;
+      document.getElementById('modalExternalLink').href = game.url;
+
+      // Reset loader
+      document.getElementById('iframeLoader').classList.remove('hidden');
+
+      // Set iframe src
+      const iframe = document.getElementById('gameIframe');
+      iframe.src = game.url;
+
+      // Open Modal
+      const modal = document.getElementById('gameModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeGameModal() {
+      const modal = document.getElementById('gameModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+
+      // Stop frame audio/execution by clearing src
+      const iframe = document.getElementById('gameIframe');
+      iframe.src = '';
+      activeGame = null;
+    }
+
+    function reloadGameIframe() {
+      if (!activeGame) return;
+      document.getElementById('iframeLoader').classList.remove('hidden');
+      const iframe = document.getElementById('gameIframe');
+      iframe.src = activeGame.url;
+    }
+
+    function toggleIframeFullscreen() {
+      const modal = document.getElementById('gameModal');
+      if (!document.fullscreenElement) {
+        if (modal.requestFullscreen) {
+          modal.requestFullscreen();
+        } else if (modal.webkitRequestFullscreen) {
+          modal.webkitRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+  </script>
+</body>
+</html>
